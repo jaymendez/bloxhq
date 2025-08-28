@@ -1,0 +1,153 @@
+/* Stats.css */
+
+.stats-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stats-refresh-button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.stats-refresh-button:disabled {
+  background-color: #b3d1ff;
+  cursor: not-allowed;
+}
+
+.stats-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.stats-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.stats-item:last-child {
+  border-bottom: none;
+}
+
+.stats-label {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.stats-value {
+  font-size: 32px;
+  font-weight: 500;
+  color: #333;
+}
+
+.stats-categories {
+  margin-top: 12px;
+}
+
+.stats-category-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.stats-category-name {
+  font-weight: 500;
+}
+
+.stats-category-count {
+  background-color: #0066ff;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.stats-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888;
+  text-align: right;
+}
+
+.stats-loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.loading-bar {
+  margin: 10px auto;
+  height: 4px;
+  max-width: 300px;
+  background: #f0f0f0;
+}
+
+.loading-progress {
+  width: 30%;
+  height: 100%;
+  background: #0066ff;
+  animation: loading 1000ms infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.stats-error {
+  text-align: center;
+  padding: 20px;
+  color: #d32f2f;
+  background-color: #fff0f0;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.stats-error button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.stats-link-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.stats-back-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #0066ff;
+  border: 1px solid #0066ff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.stats-back-link:hover {
+  background-color: #f0f8ff;
+}

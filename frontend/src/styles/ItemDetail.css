@@ -1,0 +1,72 @@
+/* ItemDetail.css */
+
+.item-detail-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: #0066ff;
+  border: 1px solid #0066ff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.item-title {
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.item-property {
+  margin: 8px 0;
+}
+
+.error-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  background-color: #fff0f0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-button {
+  padding: 8px 16px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.loading-bar {
+  margin: 10px auto;
+  height: 4px;
+  max-width: 300px;
+  background: #f0f0f0;
+}
+
+.loading-progress {
+  width: 30%;
+  height: 100%;
+  background: #0066ff;
+  animation: loading 1s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}

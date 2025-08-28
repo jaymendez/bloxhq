@@ -1,0 +1,142 @@
+/* Items.css */
+
+.items-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.search-input {
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.loading-bar {
+  margin: 10px 0;
+  height: 4px;
+  background: #f0f0f0;
+}
+
+.loading-progress {
+  width: 30%;
+  height: 100%;
+  background: #0066ff;
+  animation: loading 1s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.items-list {
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.no-items {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  align-items: center;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-button-enabled {
+  background-color: #0066ff;
+  color: white;
+}
+
+.pagination-button-disabled {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.page-info {
+  display: inline-block;
+}
+
+.total-count {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.error-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff0f0;
+  color: #d32f2f;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.item-row-even {
+  background-color: #fafafa;
+}
+
+.item-row-odd {
+  background-color: #fff;
+}
+
+.item-row:hover {
+  background-color: #f0f8ff;
+}
+
+.item-link {
+  color: #0066ff;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+}
+
+.item-price {
+  color: #666;
+  font-size: 14px;
+  margin-left: 10px;
+}
