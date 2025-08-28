@@ -9,6 +9,7 @@ function Items() {
   const [page, setPage] = useState(1);
   const [pageSize] = useState(20);
   const [searchString, setSearchString] = useState("");
+  const [debouncedSearchString, setDebouncedSearchString] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Calculate total pages
@@ -18,16 +19,32 @@ function Items() {
     ? page
     : page + 1;
 
+  // Set up debounced search to avoid excessive API calls
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setDebouncedSearchString(searchString);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [searchString]);
+
+  // Fetch items when debounced search or pagination changes
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
-    fetchItems(controller.signal, { page, pageSize, searchString })
+    fetchItems(controller.signal, {
+      page,
+      pageSize,
+      searchString: debouncedSearchString,
+    })
       .catch(console.error)
       .finally(() => setLoading(false));
     return () => {
-      controller.abort();
+      controller.abort("Component unmounted");
     };
-  }, [fetchItems, page, pageSize, searchString]);
+  }, [fetchItems, page, pageSize, debouncedSearchString]);
 
   const handleSearch = (e) => {
     setSearchString(e.target.value);
@@ -78,7 +95,10 @@ function Items() {
         />
         {searchString && (
           <button
-            onClick={() => setSearchString("")}
+            onClick={() => {
+              setSearchString("");
+              setDebouncedSearchString("");
+            }}
             className="clear-search"
             aria-label="Clear search"
           >

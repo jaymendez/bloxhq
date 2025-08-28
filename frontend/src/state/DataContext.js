@@ -9,15 +9,15 @@ export function DataProvider({ children }) {
   const [totalCount, setTotalCount] = useState(0);
 
   const fetchItems = useCallback(
-    async (signal, { page = 1, pageSize = 20, q = "" } = {}) => {
+    async (signal, { page = 1, pageSize = 20, searchString = "" } = {}) => {
       try {
         setError(null);
         const params = new URLSearchParams();
         params.append("limit", pageSize);
         params.append("offset", (page - 1) * pageSize);
         params.append("includeTotalCount", "true");
-        if (q) {
-          params.append("q", q);
+        if (searchString) {
+          params.append("q", searchString);
         }
 
         const data = await api.fetch(`/items?${params.toString()}`, { signal });
