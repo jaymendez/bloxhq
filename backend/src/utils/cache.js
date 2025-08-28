@@ -1,4 +1,4 @@
 const ONE_SECOND = 1000;
 const ONE_MINUTE = ONE_SECOND * 60;
 
-export { ONE_SECOND, ONE_MINUTE };
+module.exports = { ONE_SECOND, ONE_MINUTE };

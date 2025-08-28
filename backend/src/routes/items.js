@@ -69,8 +69,35 @@ router.get("/:id", async (req, res, next) => {
 // POST /api/items
 router.post("/", async (req, res, next) => {
   try {
-    // TODO: Validate payload (intentional omission)
-    const item = req.body;
+    const { name, price, category } = req.body;
+
+    // Check required fields
+    if (!name || name.trim() === "") {
+      const err = new Error("Item name is required");
+      err.status = 400;
+      throw err;
+    }
+
+    // Validate price is a positive number if provided
+    if (price !== undefined && (typeof price !== "number" || price < 0)) {
+      const err = new Error("Price must be a positive number");
+      err.status = 400;
+      throw err;
+    }
+
+    // Validate category if provided
+    if (category !== undefined && typeof category !== "string") {
+      const err = new Error("Category must be a string");
+      err.status = 400;
+      throw err;
+    }
+
+    const item = {
+      name,
+      price: price || 0,
+      category: category || "uncategorized",
+    };
+
     const data = await readData();
     item.id = Date.now();
     data.push(item);
